@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { ApplicationRef, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+
 
 @NgModule({
   declarations: [
@@ -11,6 +12,15 @@ import { AppComponent } from './app.component';
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [AppComponent],
+  
 })
-export class AppModule { }
+
+
+export class AppModule { 
+  public ngDoBootstrap(appRef: ApplicationRef): void {
+    if (document.querySelector('app-root')) {
+      appRef.bootstrap(AppComponent);
+    }
+  }
+}
