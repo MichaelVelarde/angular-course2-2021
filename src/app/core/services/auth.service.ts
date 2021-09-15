@@ -40,6 +40,16 @@ export class AuthService {
   public getUserId(): string | null{
     return localStorage.getItem('userId');
   }
-  
+  public verifyLogged(): boolean {
+    const token = localStorage.getItem('token');
+    // token ? true : false
+    return !!token;
+  }
+
+  public logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    this.router.navigate(['login'])
+  }
 
 }
