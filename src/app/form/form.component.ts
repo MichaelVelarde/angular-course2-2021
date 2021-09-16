@@ -3,11 +3,11 @@ import { FirebaseService } from '../core/services/firebase.service';
 
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './post-message.component.html',
-  styleUrls: ['./post-message.component.scss']
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.scss']
 })
-export class PostMessageComponent implements OnInit {
+export class FormComponent implements OnInit {
 
   constructor(private firebase: FirebaseService) { }
 
