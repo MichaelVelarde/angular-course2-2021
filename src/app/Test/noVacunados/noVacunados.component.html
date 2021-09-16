@@ -2,8 +2,9 @@
   <p>age: {{ age }}</p>
   <p>name: {{ name | uppercase }}</p>
   <p>date: {{ date }}</p>
-  <p>disease: {{ disease }}</p>
+  <p>disease: {{ getString(disease) }}</p>
   <p>vaccineType: {{ vaccineType }}</p>
-  <p>vaccined: {{ vaccined }}</p>
+  <p>vaccined: {{ getString(vaccined) }}</p>
   <p>doses: {{ doses }}</p>
+  <ng-content></ng-content>
 </div>

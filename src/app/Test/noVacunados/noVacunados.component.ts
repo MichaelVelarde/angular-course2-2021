@@ -17,6 +17,10 @@ export class NoVacunadosComponent{
 
   constructor() {}
  
-
+  getString(bol):String{
+    if(bol)
+      return 'yes';
+    return "no";
+  } 
 
 }

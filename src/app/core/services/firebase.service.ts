@@ -16,5 +16,19 @@ export class FirebaseService {
   public getAllNoVacunados():Observable<any>{
     return this.http.get(`${this.url}unvaccinated.json`)
   }
+  public delete(id: string): Observable<any>{
+    return this.http.delete(
+      `${this.url}unvaccinated/${id}.json`);
+  }
+
+  public create(body:any): Observable<any>{
+    return this.http.post(`${this.url}vaccinated.json`, body);
+  }
+  public ponerVacuna(id: string, body: any): Observable<any>{
+    return this.http.patch(
+      `${this.url}unvaccinated/${id}.json`,
+      body);
+  }
+  
 
 }

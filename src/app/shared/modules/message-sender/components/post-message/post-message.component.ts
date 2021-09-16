@@ -27,6 +27,7 @@ export class PostMessageComponent implements OnInit {
     }).subscribe( res => {
         this.homeService.setLoad(true);
     })
+    
     this.dialogRef.close(PostMessageComponent)
   }
 
