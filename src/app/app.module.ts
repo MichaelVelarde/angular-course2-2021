@@ -6,6 +6,9 @@ import {RouterModule, Routes} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CoreModule} from "./core/core.module";
 import {AuthGuard} from "./core/guards/auth.guard";
+import { VacunadosComponent } from './Test/vacunados/vacunados.component';
+import { NoVacunadosComponent } from './Test/noVacunados/noVacunados.component';
+import { StrToDatePipe } from './str-to-date.pipe';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -15,7 +18,10 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VacunadosComponent,
+    NoVacunadosComponent,
+    StrToDatePipe
   ],
   imports: [
     BrowserModule,
