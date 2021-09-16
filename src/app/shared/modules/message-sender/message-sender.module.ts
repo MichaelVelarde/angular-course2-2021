@@ -22,7 +22,9 @@ import {PublicationService} from "../../../pages/shared/services/publication.ser
   ],
   providers: [
     PublicationService
-  ]
+  ],
+  entryComponents: [ PostMessageComponent ]
+  
 })
 
 export class MessageSenderModule {
