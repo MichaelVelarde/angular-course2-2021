@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../core/services/firebase.service';
-
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-form',
@@ -9,7 +9,8 @@ import { FirebaseService } from '../core/services/firebase.service';
 })
 export class FormComponent implements OnInit {
 
-  constructor(private firebase: FirebaseService) { }
+  constructor(private firebase: FirebaseService,
+      public dialogRef: MatDialogRef<FormComponent>) { }
 
   ngOnInit(): void {
   }

@@ -9,6 +9,9 @@ import {AuthGuard} from "./core/guards/auth.guard";
 import { VacunadosComponent } from './Test/vacunados/vacunados.component';
 import { NoVacunadosComponent } from './Test/noVacunados/noVacunados.component';
 import { StrToDatePipe } from './str-to-date.pipe';
+import { FormComponent } from './form/form.component';
+import { FormsModule } from '@angular/forms';
+import { SharedMaterialModule } from './shared/shared-material.module';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -19,16 +22,20 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    FormComponent,
     VacunadosComponent,
     NoVacunadosComponent,
     StrToDatePipe
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    SharedMaterialModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     CoreModule
   ],
+  entryComponents: [FormComponent],
   bootstrap: [AppComponent]
 })
 

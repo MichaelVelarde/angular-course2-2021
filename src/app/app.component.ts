@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from './core/services/firebase.service';
+import {MatDialog} from "@angular/material/dialog";
+import { FormComponent } from './form/form.component';
 
 @Component({
   selector: 'app-root',
@@ -41,7 +43,7 @@ export class AppComponent {
   totalNoVacunados = 0;
   vacunados: any[] = [];
   noVacunados: any[] = [];
-  constructor(private firebase: FirebaseService) {
+  constructor(private firebase: FirebaseService,  private matDialog: MatDialog) {
   
   }
   ngOnInit(): void {
@@ -74,6 +76,9 @@ export class AppComponent {
   }
   hardRefresh(){
     
+  }
+  onCreateNewAccount(){
+    this.matDialog.open(FormComponent)
   }
   vacunar(idPersona){
     for (let i = 0; i < this.noVacunados.length; i++) {
