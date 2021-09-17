@@ -1,33 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
-import {AuthService} from "../../../../../core/services/auth.service";
-import {PublicationService} from "../../../../../pages/shared/services/publication.service";
-import {HomeService} from "../../../../../pages/home/home.service";
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AuthService } from '../../../../../core/services/auth.service';
+import { PublicationService } from '../../../../../pages/shared/services/publication.service';
+import { HomeService } from '../../../../../pages/home/home.service';
+import { ProfileService } from 'src/app/pages/profile/profile.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './post-message.component.html',
-  styleUrls: ['./post-message.component.scss']
+  styleUrls: ['./post-message.component.scss'],
 })
 export class PostMessageComponent implements OnInit {
+  constructor(
+    private authService: AuthService,
+    private publicationService: PublicationService,
+    private homeService: HomeService,
+    private profileService: ProfileService,
+    public dialogRef: MatDialogRef<PostMessageComponent>
+  ) {}
 
-  constructor(private authService: AuthService,
-              private publicationService: PublicationService,
-              private homeService: HomeService,
-              public dialogRef: MatDialogRef<PostMessageComponent>) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  onRegister(form:any){
-
-    this.publicationService.create({
-      ...form.value,
-      idUser: this.authService.getUserId()
-    }).subscribe( res => {
+  onRegister(form: any) {
+    this.publicationService
+      .create({
+        ...form.value,
+        idUser: this.authService.getUserId(),
+      })
+      .subscribe((res) => {
         this.homeService.setLoad(true);
-    })
-    this.dialogRef.close(PostMessageComponent)
+        this.profileService.setLoad(true);
+      });
+    this.dialogRef.close(PostMessageComponent);
   }
-
 }

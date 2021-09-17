@@ -16,13 +16,11 @@
 
     <app-message-sender></app-message-sender>
     <ng-container *ngFor="let publi of publications">
-    <app-post  [categoria] = "publi[1]['name']"
+    <app-post  [category] = "publi[1]['category']" [date] = "publi[1]['date']" [description] = "publi[1]['description']"
     ></app-post>
     </ng-container>
 
-    <ng-container *ngFor="let post of [1,2,3,4]">
-      <app-post></app-post>
-    </ng-container>
+
   </div>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2"></div>

@@ -7,22 +7,19 @@ import { filter } from 'rxjs/operators';
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
-  publications = [];
+  publications: any[] = [];
   constructor(
     private publicationService: PublicationService,
     private homeService: HomeService
   ) {}
 
   ngOnInit(): void {
-    this.homeService
-      .currentLoad()
-      .pipe(filter((s) => s === true))
-      .subscribe((s) => this.loadData());
+    this.homeService.currentLoad().subscribe((s) => this.loadData());
   }
   onShowMessage(): void {}
+
   saveData(data: any): void {
     this.publications = Object.entries(data);
-    console.log('estoy en save data', data);
   }
   loadData() {
     this.publicationService.getAll().subscribe((res) => {
