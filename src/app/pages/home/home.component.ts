@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
       .currentLoad()
       .pipe(filter((s) => s === true))
       .subscribe((s) => this.loadData());
-    this.loadData();
   }
   onShowMessage(): void {}
   saveData(data: any): void {
