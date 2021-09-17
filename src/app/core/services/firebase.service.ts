@@ -32,6 +32,11 @@ export class FirebaseService {
       `${this.url}unvaccinated/${id}.json`,
       body);
   }
+  public agregarNoVacuna(id: string, body: any): Observable<any>{
+    return this.http.patch(
+      `${this.url}unvaccinated/${id}.json`,
+      body);
+  }
   
 
 }

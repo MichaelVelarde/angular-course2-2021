@@ -20,9 +20,11 @@ import { FormComponent } from './form/form.component';
   </div>
   </div>
   <div *ngIf=allvacuned() [style.background]="'red'"> ERYBODY VACCINATED </div>
+  
   <div style="display: flex; flexDirection: row;">&nbsp;&nbsp;
     <p>Not Vaccined</p> &nbsp;&nbsp; &nbsp;&nbsp;
     <p>TOTAL: {{setTotalNoVacunados()}} </p>
+    <button  (click)="crearVacunado()" >Crear Vacunado</button>
   </div>
   <div style="display: flex; flexDirection: row;">
   <div *ngFor="let vacunado of noVacunados">
@@ -33,11 +35,13 @@ import { FormComponent } from './form/form.component';
     (click)="vacunar(vacunado[0])">
       vaccinate
     </button>
-    <button  (click)="editarVacunado()" >edit</button>
+    <button  (click)="editarVacunado(vacunado[0])" >edit</button>
   </app-noVacunados>
   
   </div>
-  </div>`,
+  </div>
+  
+  `,
 })
 export class AppComponent {
   totalVacunados = 0;
@@ -78,9 +82,15 @@ export class AppComponent {
   hardRefresh(){
     
   }
-  editarVacunado(){
-    this.matDialog.open(FormComponent);
-    
+  crearVacunado(){
+    this.matDialog.open(FormComponent, {
+      data: null,
+    }).afterClosed().subscribe(() => this.getDataNoVacunados());  
+  }
+  editarVacunado(idPersona){
+    this.matDialog.open(FormComponent, {
+      data: idPersona,
+  }).afterClosed().subscribe(() => this.getDataNoVacunados());  
   }
   vacunar(idPersona){
     for (let i = 0; i < this.noVacunados.length; i++) {
