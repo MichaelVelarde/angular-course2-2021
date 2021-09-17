@@ -24,6 +24,9 @@ export class FirebaseService {
   public create(body:any): Observable<any>{
     return this.http.post(`${this.url}vaccinated.json`, body);
   }
+  public createNoVacunados(body:any): Observable<any>{
+    return this.http.post(`${this.url}unvaccinated.json`, body);
+  }
   public ponerVacuna(id: string, body: any): Observable<any>{
     return this.http.patch(
       `${this.url}unvaccinated/${id}.json`,

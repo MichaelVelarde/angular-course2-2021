@@ -33,6 +33,7 @@ import { FormComponent } from './form/form.component';
     (click)="vacunar(vacunado[0])">
       vaccinate
     </button>
+    <button  (click)="editarVacunado()" >edit</button>
   </app-noVacunados>
   
   </div>
@@ -77,8 +78,9 @@ export class AppComponent {
   hardRefresh(){
     
   }
-  onCreateNewAccount(){
-    this.matDialog.open(FormComponent)
+  editarVacunado(){
+    this.matDialog.open(FormComponent);
+    
   }
   vacunar(idPersona){
     for (let i = 0; i < this.noVacunados.length; i++) {

@@ -11,7 +11,7 @@ export class VacunadosComponent{
   @Input() date: string|undefined;
   @Input() disease: boolean|undefined;
   @Input() vaccineType: string|undefined;
-  @Input() vaccined: boolean|undefined;
+  @Input() vaccined: number|undefined;
   @Input() doses: number|undefined;
   
 
